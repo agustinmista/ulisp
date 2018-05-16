@@ -1,0 +1,72 @@
+# Variables
+val v = var1
+
+# Explicit and implicit abstractions
+val id1 = fn x => x
+val id2 : a -> a = λ x => x
+val const : a -> b -> a = fn x y => x
+
+# Function application
+val g  = f1 true 5
+
+# Literals values and types
+val l1 : () = ()
+val l2 : int = 42
+val l3 : real = 3.14
+val l4 : string = "hello, world!"
+val l5 : bool = true
+
+# Tuples
+val t1 : (int, bool) = (1, false)
+val t2 : (bool -> bool, string) = (λ x => x, "hola")
+
+# Sum types
+val sum1 : int + bool = >> false
+val sum2 : int + bool = << 42
+val sum2 : (int + bool, int + int) = (inl 42, inr 42)
+
+# Let bindings
+val f : int =
+  let val a = 5; fun f x = f x
+  in plus a b
+  end
+
+sig f : int -> int
+fun f x = let val a = 5
+              val b = f a
+              val c = g a b
+           in c end
+
+# # Case expressions
+# # sig lessthan2 : Int -> Bool
+# def lessThan2 n =
+#   case n of
+#   | 0 => true
+#   | 1 => true
+#   | _ => false
+#   end
+
+# def not b = case b of true => false | false => true end
+
+# # If then else expressions
+# def and p q = if p then q else false
+
+# # Explicit and implicit fix point
+# def fact : Int -> Int =
+#   fix (λ fact n ->
+#          if leq x 1
+#            then 1
+#            else mult n (fact (pred n)))
+
+
+# def rec fact n =
+#   if leq x 1
+#     then 1
+#     else mult x (fact (pred x))
+
+# def f = h 1 2 3 4
+
+# # Type annotations
+# def ann : Bool = (id1 : Bool -> Bool) (true : Bool)
+
+# syn Pair = (Double, Double)

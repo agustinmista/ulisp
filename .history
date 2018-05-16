@@ -1,0 +1,32 @@
+:load test/test.nano 
+:load test/test.nano 
+:load test/test.nano 
+val a : b = 10
+val a : Int = 10
+val a : Int
+:load test/test.nano 
+:load test/test.nano 
+:load test/Spec.hs 
+:r
+Lr
+:load test/Spec.hs 
+:load asdad
+fun f x = fix (λ x => x)
+fun f x = fix λ x => x
+fun f x = fix 0
+fun f x = if x == 0 then true else false
+fun f x = if x = 0 then true else false
+val x = t : i
+asd
+:load test/test.nano 
+:load test/test.nano 
+:load test/test.nano 
+:load test/test.nano 
+:load test/test.nano 
+:load test/test.nano 
+val x = 3
+let val x = 3
+let val x =3
+l
+:browse 
+asd

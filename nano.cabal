@@ -1,0 +1,73 @@
+-- This file has been generated from package.yaml by hpack version 0.20.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: e8714f883eebf30329412f08db96faf4522409b623258b3bd3b01ef102b5409e
+
+name:           nano
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/agustinmista/ulisp#readme>
+homepage:       https://github.com/agustinmista/nano#readme
+bug-reports:    https://github.com/agustinmista/nano/issues
+author:         Agustín Mista
+maintainer:     amista@dcc.fceia.unr.edu.ar
+copyright:      2018 Agustín Mista
+license:        GPL-3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+extra-source-files:
+    ChangeLog.md
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/agustinmista/nano
+
+executable nano
+  main-is: Main.hs
+  hs-source-dirs:
+      src
+  default-extensions: OverloadedStrings TypeSynonymInstances
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wno-unused-do-bind
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , microlens
+    , microlens-th
+    , mtl
+    , parsec
+    , pretty
+    , repline
+    , text
+  other-modules:
+      Infer
+      Lexer
+      Parser
+      Pass
+      Pretty
+      Syntax
+      Paths_nano
+  default-language: Haskell2010
+
+test-suite nano-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs:
+      test
+  default-extensions: OverloadedStrings TypeSynonymInstances
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wno-unused-do-bind
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , microlens
+    , microlens-th
+    , mtl
+    , parsec
+    , pretty
+    , repline
+    , text
+  other-modules:
+      Paths_nano
+  default-language: Haskell2010

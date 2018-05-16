@@ -1,0 +1,96 @@
+# Variables
+val v = var1
+
+# Explicit and implicit abstractions
+val id1 = fn x => x
+val id2 : a -> a = λ x => x
+val const : a -> b -> a = fn x y => x
+
+# Function application
+val g  = f1 true 5
+
+# Literals values and types
+val l1 : () = ()
+val l2 : Int = 42
+val l3 : Real = 3.14
+val l4 : String = "hello, world!"
+val l5 : Bool = true
+
+# Tuples
+val t1 : (Int, Bool) = (1, false)
+val t2 : (Bool -> Bool, String) = (λ x => x, "hola")
+
+# Sum types
+val sum1 : Int + Bool = >> false
+val sum2 : Int + Bool = << 42
+val sum2 : (Int + Bool, Int + Int) = (inl 42, inr 42)
+
+# Let bindings
+val f : Int =
+  let val a = 5
+      fun f x : Int = f x
+  in a + b
+  end
+
+sig f : Int -> Int
+fun f x = let val a = 5
+              val b = f a
+              val c = g a b
+           in c end
+
+# Case expressions
+sig le1 : Int -> Bool
+fun le1 n =
+  case n of
+  | 0 => true
+  | 1 => true
+  | _ => false
+
+fun not b = case b of true => false | _ => true
+
+# If then else expressions
+sig and : Int -> Int
+fun and p q = if p then q else false
+
+# Explicit and implicit fix point
+sig fact : Int -> Int
+fun fact n : Int
+  = if leq n 1
+    then 1
+    else n  * fact (n - 1)
+
+val fact' : Int -> Int =
+  fix (λ f n =>
+         if leq x 1
+         then 1
+         else n * f (n - 1))
+
+sig f : Int -> Int -> Int
+fun f x y = x
+
+# Type annotations
+val ann : Bool = (id1 : Bool -> Bool) (true : Bool)
+
+# Type synonyms
+type IntPair = (Int, Int)
+
+val x = f (if x then 5 else 8)
+
+val x = fix ((<< a) b)
+
+val app = 1 (2 2 ((fix 3) 3) 2 2) (2 ((<< 3) (4 4)))
+
+infixl /\ = and
+
+val f = 1 - 2 - 3 / 4 - 5 - 6
+val f = 1 + 2 + 3 * 4 + 5 + 6
+
+val t : (Int, Bool, Real) = (1, true, 3.0)
+
+fun a a b c = 2
+
+val asdads = a
+
+infixr :->: = arr
+
+val suma = fn a b c => a :->: b :->: c

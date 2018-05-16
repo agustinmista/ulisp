@@ -1,0 +1,53 @@
+name:                nano
+version:             0.1.0.0
+github:              "agustinmista/nano"
+license:             GPL-3
+author:              "Agustín Mista"
+maintainer:          "amista@dcc.fceia.unr.edu.ar"
+copyright:           "2018 Agustín Mista"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:
+  Please see the README on GitHub at
+  <https://github.com/agustinmista/ulisp#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- text
+- mtl
+- containers
+- parsec
+- pretty
+- microlens
+- microlens-th
+- repline
+
+ghc-options:
+- -threaded
+- -rtsopts
+- -with-rtsopts=-N
+- -Wno-unused-do-bind
+
+default-extensions:
+- OverloadedStrings
+- TypeSynonymInstances
+
+executables:
+  nano:
+    main:                Main.hs
+    source-dirs:         src
+
+tests:
+  nano-test:
+    main:                Spec.hs
+    source-dirs:         test
